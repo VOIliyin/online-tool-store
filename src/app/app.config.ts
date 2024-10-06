@@ -1,8 +1,11 @@
 import { ApplicationConfig } from '@angular/core';
 import { provideRouter } from '@angular/router';
-
+import {NG_EVENT_PLUGINS} from '@taiga-ui/event-plugins';
 import { routes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes)]
+  providers: [
+    provideRouter(routes),
+    NG_EVENT_PLUGINS
+  ]
 };

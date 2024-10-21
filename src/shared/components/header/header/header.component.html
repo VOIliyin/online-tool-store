@@ -1,0 +1,96 @@
+<div class="info info__container">
+    <div class="info__right-side">
+        <div class="info__phone">
+            <tui-icon class="info__phone_icon" icon="@tui.phone"></tui-icon>
+            <div>8 800 5353535</div>
+        </div>
+        <div class="info__email" (click)="copy('rci-tech')">rci-tech&#64;yandex.ru</div>
+    </div>
+
+    <div class="info__left-side">
+        <div class="info__task">Отправить задание</div>
+        <div>Заказать звонок</div>
+    </div>
+</div>
+
+<div class="navigation">
+    <img class="navigation__logo" src="assets/logo.png" />
+    <div class="navigation__line"></div>
+    <div class="navigation__desc">
+        Надежный Инструмент, оснастка <br/>
+        станки для металлообработки <br/>
+        <b>Ryazan Cutting Instrumetn</b>
+    </div>
+
+    <button
+        class="navigation__catalog"
+        appearance="floating"
+        tuiChevron
+        tuiButton
+        type="button"
+        size="m"
+        [tuiAppearanceState]="open ? 'hover' : null"
+        [tuiDropdown]="content"
+        [(tuiDropdownOpen)]="open"
+    >
+        Каталог
+    </button>
+</div>
+
+<ng-template #content>
+    <tui-data-list
+        tuiDataListDropdownManager
+        size="s"
+    >
+        <button
+            *tuiLet="'French Fries' as item"
+            tuiOption
+            type="button"
+        >
+            {{ item }}
+        </button>
+        <button
+            iconEnd="@tui.chevron-right"
+            tuiDropdownAlign="right"
+            tuiDropdownManual
+            tuiDropdownSided
+            tuiOption
+            type="button"
+            [tuiDropdown]="burgersTmp"
+        >
+            Burgers
+        </button>
+        <button
+            iconEnd="@tui.chevron-right"
+            tuiDropdownAlign="right"
+            tuiDropdownManual
+            tuiDropdownSided
+            tuiOption
+            type="button"
+        >
+            Drinks
+        </button>
+    </tui-data-list>
+</ng-template>
+    <ng-template #burgersTmp>
+        <tui-data-list tuiDataListDropdownManager>
+            <button
+                *ngFor="let burger of ['123', '1231233']"
+                tuiOption
+                type="button"
+            >
+                {{ burger }}
+            </button>
+            <button
+                iconEnd="@tui.chevron-right"
+                iconStart="@tui.menu"
+                tuiDropdownAlign="right"
+                tuiDropdownManual
+                tuiDropdownSided
+                tuiOption
+                type="button"
+            >
+                Nested menu
+            </button>
+        </tui-data-list>
+    </ng-template>
